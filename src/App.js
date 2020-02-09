@@ -4,7 +4,6 @@ import './App.css';
 import './DashTable.js';
 import StatusCard from './StatusCard';
 import { Row, Col,Card } from 'antd';
-import 'tachyons';
 import car_pic from './car_pic.png';
 import xci_pic from './xci_pic.png';
 import cart_pic from './cart_pic.jpg';
