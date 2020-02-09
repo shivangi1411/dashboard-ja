@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Card } from 'antd';
 import './StatusCard.css';
-import 'tachyons';
 import { Row, Col} from 'antd';
 
 function  StatusCard() {
