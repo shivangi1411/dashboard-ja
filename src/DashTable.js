@@ -18,6 +18,10 @@ import next_pic from './next_pic.png';
 import user from './user.png';
 import leadership from './leadership.png';
 import logo from './logo.jpg';
+import bag from './bag.png';
+import max from './max.png';
+import plane from './plane.png';
+import ezone from './ezone.png';
 
 const { Title } = Typography;
 
@@ -68,20 +72,20 @@ refreshList(){
     this.setState({
 
         flightDes:[
-            {"name" :{"nameId":"Mr. Lewis Harold","status":"S"}, "flightNo":"SQ401","dest":"SIN","ETD":"9.55","cta":"","pasStatus":"yellow", "tierStatus":"3","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Ms. Dana Cliff","status":"S"}, "flightNo":"LH761","dest":"FRA","ETD":"3.35","cta":"","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"Y","porter":"N","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Lewis Harold","status":"S"}, "flightNo":"SQ401","dest":"SIN","ETD":"9.55","cta":"Send Flight Status","pasStatus":"yellow", "tierStatus":"3","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Ms. Dana Cliff","status":"S"}, "flightNo":"LH761","dest":"FRA","ETD":"3.35","cta":"Resend Xpress Check-IN Details","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"Y","porter":"N","parking":"N","lounge":"N","zone":"N"},
             {"name" :{"nameId":"Mr. Pablo King","status":"S"}, "flightNo":"BA256","dest":"LHR","ETD":"12.05","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Ayrton Prost","status":"S"}, "flightNo":"CX698","dest":"HKG","ETD":"10.35","cta":"Max Promo Store","pasStatus":"green", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"Y","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Elwin Norris","status":"S"}, "flightNo":"UK121","dest":"BKK","ETD":"8.15","cta":"","pasStatus":"red", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Lando Sainz","status":"S"}, "flightNo":"AI342","dest":"SIN","ETD":"11.55","cta":"","pasStatus":"yellow", "tierStatus":"5","cabStatus":"N","xci":"N","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Ms. Kristy Daniel","status":"G"}, "flightNo":"AI281","dest":"CMB","ETD":"12.55","cta":"","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Carl Andy","status":"S"}, "flightNo":"MH173","dest":"KUL","ETD":"1.20","cta":"Intl. Lounge offer","pasStatus":"ARRIVED", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Ben Gasly","status":"S"}, "flightNo":"EY2019","dest":"AUH","ETD":"2.20","cta":"","pasStatus":"green", "tierStatus":"2","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"Y","zone":"N"},
-            {"name" :{"nameId":"Ms. Mercy Peters","status":"G"}, "flightNo":"6E1214","dest":"SIN","ETD":"6.55","cta":"Aries Rest. offer","pasStatus":"ARRIVED", "tierStatus":"4","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Jim  Hamilton","status":"G"}, "flightNo":"MU568","dest":"PVG","ETD":"4.20","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Ayrton Prost","status":"S"}, "flightNo":"CX698","dest":"HKG","ETD":"10.35","cta":"Send Max Store Promo","pasStatus":"green", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"Y","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Elwin Norris","status":"S"}, "flightNo":"UK121","dest":"BKK","ETD":"8.15","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Lando Sainz","status":"S"}, "flightNo":"AI342","dest":"SIN","ETD":"11.55","cta":"Resend Porter Details","pasStatus":"yellow", "tierStatus":"5","cabStatus":"N","xci":"N","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Ms. Kristy Daniel","status":"G"}, "flightNo":"AI281","dest":"CMB","ETD":"12.55","cta":"Send Entertainment Zone Info","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Carl Andy","status":"S"}, "flightNo":"MH173","dest":"KUL","ETD":"1.20","cta":"Send Promocode For INTL Lounge ","pasStatus":"ARRIVED", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Ben Gasly","status":"S"}, "flightNo":"EY2019","dest":"AUH","ETD":"2.20","cta":"Send Duty Free Offers","pasStatus":"green", "tierStatus":"2","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"Y","zone":"N"},
+            {"name" :{"nameId":"Ms. Mercy Peters","status":"G"}, "flightNo":"6E1214","dest":"SIN","ETD":"6.55","cta":"Send Aries Restaurant Offer","pasStatus":"ARRIVED", "tierStatus":"4","cabStatus":"N","xci":"N","porter":"P","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Jim  Hamilton","status":"G"}, "flightNo":"MU568","dest":"PVG","ETD":"4.20","cta":"Send SS Store Promo","pasStatus":"red", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"Y"},
             {"name" :{"nameId":"Ms. Linda Ross","status":"S"}, "flightNo":"EK515","dest":"DXB","ETD":"7.10","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Ms. Judy William","status":"S"}, "flightNo":"OD206","dest":"KUL","ETD":"16.45","cta":"","pasStatus":"green", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Kimi Cold","status":"S"}, "flightNo":"VJ972","dest":"HAN","ETD":"20.10","cta":"","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"}
+            {"name" :{"nameId":"Ms. Judy William","status":"S"}, "flightNo":"OD206","dest":"KUL","ETD":"16.45","cta":"Send Promo Offer Of Duty Free","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
+            {"name" :{"nameId":"Mr. Kimi Cold","status":"S"}, "flightNo":"VJ972","dest":"HAN","ETD":"20.10","cta":"Send Flight Status","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"}
             
     ]
     })
@@ -89,6 +93,7 @@ refreshList(){
     render (){
         const {flightDes}=this.state;
 
+        
         const getPaxCOunt=(status)=>{
             if(status=="S"){
                 return (
@@ -183,7 +188,7 @@ refreshList(){
             if(zone=="Y"){
                 return (
                   <div>
-                  
+                   <img src={ezone} width="20px" height="20px"/>
                   
                 </div> 
                 )}
@@ -319,9 +324,9 @@ refreshList(){
             <div style={{marginLeft:'20px', height:'800px', marginRight:'20px',paddingTop:'15px'}}>
 
             <div style={{float:'right',marginTop:'5px',marginRight:'35px',paddingBottom:'10px'}}>
-                  <form>
+                 
                       <input type="text"  placeholder="Search..." value={this.searchText} onChange={this.searchHandler}/>
-                      </form>
+                     
                    </div>
 
                    <Table className="tableStyle" striped bordered hover style={{width:'1160px',marginLeft:'30px',height:'600px',marginTop:'30px',borderBottomColor:'white'}}>
@@ -387,7 +392,7 @@ refreshList(){
                            
                            
 
-                               <td><Card style={{backgroundColor:des.pasStatus,marginLeft: 30, width: 40, height: 15,borderColor:"black" }}></Card> </td>
+                               <td><Card style={{backgroundColor:des.pasStatus,marginLeft: 10, width: 75, height: 15,borderColor:"black" }}></Card> </td>
                                
                        <td style={{paddingLeft:'10px'}}>{getTierStatus(des.tierStatus)}</td>                     
                                    
@@ -398,7 +403,7 @@ refreshList(){
                        <td style={{width:'32px',textAlign:'center'}}>{getLoungeStatus(des.lounge)}</td>
                        <td style={{width:'32px',textAlign:'center'}}>{getZonetatus(des.zone)}</td>
                               
-                        <td style={{fontSize:'11px',textAlign:'left',paddingLeft:'13px',borderRightColor:'white',fontFamily:'Roboto,Sans-serif',fontSize:'16px'}}><b>{des.cta}</b></td>
+                        <td style={{fontSize:'11px',textAlign:'left',paddingLeft:'5px',borderRightColor:'white',fontFamily:'Roboto,Sans-serif',fontSize:'16px'}}><b> {des.cta}</b></td>
                        </tr>
                            )}
                        
@@ -466,6 +471,12 @@ refreshList(){
                    <Icon type="star" theme="filled" style={{color:'green'}}/>
                </div>
            </td>
+           <td>
+           <img src={user} width="15px" height="15px"/>
+           </td>
+           <td style={{fontSize:'10px'}}>
+               One Passenger
+           </td>
        </tr>
 
        <tr>
@@ -478,6 +489,10 @@ refreshList(){
            <td style={{fontSize:'8px',textAlign:'left',paddingLeft:'30px'}}>Tier 3</td>
            <td style={{fontSize:'8px',textAlign:'left',paddingLeft:'30px'}}> Tier 4</td>
            <td style={{fontSize:'8px',textAlign:'left',paddingLeft:'30px'}}>Tier 5</td>
+           <td>
+           <img src={leadership} width="15px" height="15px"/>
+           </td>
+           <td style={{fontSize:'10px'}}> More Than One Passenger</td>
        </tr>
 </table>
 
