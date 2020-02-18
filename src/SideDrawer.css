@@ -1,0 +1,35 @@
+.side-drawer{
+    height: 90%;
+    background-color: #152036;
+    box-shadow: 2px 0px 5px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 35px;
+    left: 5px;
+    width: 20%;
+    max-width: 180px;
+    z-index: 200;
+}
+.side-drawer ul{
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+}
+.side-drawer li{
+    margin: 0.7rem 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+   }
+.side-drawer a{
+    color: white;
+    text-decoration: none;
+    padding-left: 25px;
+    font-size: 1rem;
+    text-align: left;
+}
+.side-drawer a:hover,
+.side-drawer a:active{
+    color: green;;
+}

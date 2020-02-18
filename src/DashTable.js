@@ -3,6 +3,10 @@ import {Avatar,Typography} from 'antd';
 import { Row, Col,Card, Icon} from 'antd';
 import ReactDOM from 'react-dom';
 import './DashTable.css';
+import Toolbar from './Toolbar';
+import SideDrawer from './SideDrawer';
+import {BrowserRouter, Route,Switch} from 'react-router-dom';
+import Home from './Home';
 import {Table} from 'react-bootstrap';
 import Clock from 'react-live-clock';
 import { destroyFns } from 'antd/lib/modal/Modal';
@@ -22,6 +26,8 @@ import bag from './bag.png';
 import max from './max.png';
 import plane from './plane.png';
 import ezone from './ezone.png';
+import entertainment from './entertainment.png';
+
 
 const { Title } = Typography;
 
@@ -57,9 +63,18 @@ constructor(props){
     super(props);
     this.state={flightDes : [],
         searchText: '',
+        sideDrawerOpen : false
     }
     this.searchHandler=this.searchHandler.bind(this);
 }
+
+
+drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+        return {sideDrawerOpen: !prevState.sideDrawerOpen};
+    });
+};
+
 searchHandler(event){
     this.setState({searchText:event.target.value})
     }
@@ -72,28 +87,33 @@ refreshList(){
     this.setState({
 
         flightDes:[
-            {"name" :{"nameId":"Mr. Lewis Harold","status":"S"}, "flightNo":"SQ401","dest":"SIN","ETD":"9.55","cta":"Send Flight Status","pasStatus":"yellow", "tierStatus":"3","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Ms. Dana Cliff","status":"S"}, "flightNo":"LH761","dest":"FRA","ETD":"3.35","cta":"Resend Xpress Check-IN Details","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"Y","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Pablo King","status":"S"}, "flightNo":"BA256","dest":"LHR","ETD":"12.05","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Ayrton Prost","status":"S"}, "flightNo":"CX698","dest":"HKG","ETD":"10.35","cta":"Send Max Store Promo","pasStatus":"green", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"Y","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Elwin Norris","status":"S"}, "flightNo":"UK121","dest":"BKK","ETD":"8.15","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Lando Sainz","status":"S"}, "flightNo":"AI342","dest":"SIN","ETD":"11.55","cta":"Resend Porter Details","pasStatus":"yellow", "tierStatus":"5","cabStatus":"N","xci":"N","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Ms. Kristy Daniel","status":"G"}, "flightNo":"AI281","dest":"CMB","ETD":"12.55","cta":"Send Entertainment Zone Info","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Carl Andy","status":"S"}, "flightNo":"MH173","dest":"KUL","ETD":"1.20","cta":"Send Promocode For INTL Lounge ","pasStatus":"ARRIVED", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Ben Gasly","status":"S"}, "flightNo":"EY2019","dest":"AUH","ETD":"2.20","cta":"Send Duty Free Offers","pasStatus":"green", "tierStatus":"2","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"Y","zone":"N"},
-            {"name" :{"nameId":"Ms. Mercy Peters","status":"G"}, "flightNo":"6E1214","dest":"SIN","ETD":"6.55","cta":"Send Aries Restaurant Offer","pasStatus":"ARRIVED", "tierStatus":"4","cabStatus":"N","xci":"N","porter":"P","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Jim  Hamilton","status":"G"}, "flightNo":"MU568","dest":"PVG","ETD":"4.20","cta":"Send SS Store Promo","pasStatus":"red", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"Y"},
-            {"name" :{"nameId":"Ms. Linda Ross","status":"S"}, "flightNo":"EK515","dest":"DXB","ETD":"7.10","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Ms. Judy William","status":"S"}, "flightNo":"OD206","dest":"KUL","ETD":"16.45","cta":"Send Promo Offer Of Duty Free","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
-            {"name" :{"nameId":"Mr. Kimi Cold","status":"S"}, "flightNo":"VJ972","dest":"HAN","ETD":"20.10","cta":"Send Flight Status","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"}
-            
+
+            {"name" :{"nameId":"Mr. Ben Gasly","status":"S"}, "flightNo":"EY2019","dest":"AUH","ETD":"13.10","cta":"Send Duty Free Offers","pasStatus":"green", "tierStatus":"2","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"Y","zone":"N"},
+			{"name" :{"nameId":"Ms. Dana Cliff","status":"S"}, "flightNo":"LH761","dest":"FRA","ETD":"13.15","cta":"Resend Xpress Check-IN Details","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"Y","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Jim  Hamilton","status":"G"}, "flightNo":"MU568","dest":"PVG","ETD":"13.20","cta":"Send SS Store Promo","pasStatus":"green", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"Y"},
+			{"name" :{"nameId":"Ms. Linda Ross","status":"S"}, "flightNo":"EK515","dest":"DXB","ETD":"13.30","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Elwin Norris","status":"S"}, "flightNo":"UK121","dest":"BKK","ETD":"13.40","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Lewis Harold","status":"S"}, "flightNo":"SQ401","dest":"SIN","ETD":"13.45","cta":"Send Flight Status","pasStatus":"yellow", "tierStatus":"3","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Ms. Mercy Peters","status":"G"}, "flightNo":"6E1214","dest":"SIN","ETD":"13.50","cta":"Send Aries Restaurant Offer","pasStatus":"ARRIVED", "tierStatus":"4","cabStatus":"N","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Carl Andy","status":"S"}, "flightNo":"MH173","dest":"KUL","ETD":"13.55","cta":"Send Promocode For INTL Lounge ","pasStatus":"ARRIVED", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Ayrton Prost","status":"S"}, "flightNo":"CX698","dest":"HKG","ETD":"14.00","cta":"Send Max Store Promo","pasStatus":"green", "tierStatus":"5","cabStatus":"N","xci":"N","porter":"N","parking":"Y","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Lando Sainz","status":"S"}, "flightNo":"AI342","dest":"SIN","ETD":"14.10","cta":"Resend Porter Details","pasStatus":"yellow", "tierStatus":"5","cabStatus":"N","xci":"N","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Pablo King","status":"S"}, "flightNo":"BA256","dest":"LHR","ETD":"14.15","cta":"Send Flight Status","pasStatus":"red", "tierStatus":"1","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Ms. Kristy Daniel","status":"G"}, "flightNo":"AI281","dest":"CMB","ETD":"14.20","cta":"Send Entertainment Zone Info","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Ms. Judy William","status":"S"}, "flightNo":"OD206","dest":"KUL","ETD":"14.25","cta":"Send Promo Offer Of Duty Free","pasStatus":"green", "tierStatus":"5","cabStatus":"Y","xci":"N","porter":"Y","parking":"N","lounge":"N","zone":"N"},
+			{"name" :{"nameId":"Mr. Kimi Cold","status":"S"}, "flightNo":"VJ972","dest":"HAN","ETD":"14.30","cta":"Send Flight Status","pasStatus":"yellow", "tierStatus":"3","cabStatus":"N","xci":"N","porter":"N","parking":"N","lounge":"N","zone":"N"}
+
     ]
     })
 }
     render (){
         const {flightDes}=this.state;
 
-        
+        let sideDrawer;
+       
+        if(this.state.sideDrawerOpen){
+            sideDrawer=<SideDrawer />;
+        }
         const getPaxCOunt=(status)=>{
             if(status=="S"){
                 return (
@@ -188,7 +208,7 @@ refreshList(){
             if(zone=="Y"){
                 return (
                   <div>
-                   <img src={ezone} width="20px" height="20px"/>
+                   <img src={entertainment} width="25px" height="25px"/>
                   
                 </div> 
                 )}
@@ -197,6 +217,19 @@ refreshList(){
                       <div></div> 
                     )}
             
+        }
+
+        const getPassArrivalStatus = (pasStatus)=> {
+            if(pasStatus=="ARRIVED"){
+                return (
+                  <div >
+                      <div style={{fontSize:'11px',textAlign:'center',paddingLeft:'5px',borderRightColor:'white',fontFamily:'Roboto,Sans-serif',fontSize:'16px'}}><b> <i>ARRIVED </i></b></div>
+                  
+                </div> 
+                )} else{
+                    return(
+                        <Card style={{backgroundColor:pasStatus,marginLeft: 10, width: 95, height: 15,borderColor:"black" }}></Card> 
+                    )}
         }
        
         const getTierStatus = (tierStatus)=>{
@@ -266,7 +299,7 @@ refreshList(){
             
         return(
             <div>
-
+ <BrowserRouter>
                 <div style={{width:'1265px', height:'60px'}}> 
 
                 <div style={{width:'150px',height:'80px',color:'white',float:'left'}}>
@@ -288,7 +321,7 @@ refreshList(){
 
                 <div style={{float:'left',width:'450px' ,marginLeft:'250px'}}> 
                 <div>
-                <h1 style={{color:'white',textAlign:'center',fontWeight:'bold',fontSize:'25px'}}><u>Journey Assistant</u></h1>
+                <h1 style={{color:'white',textAlign:'center',fontWeight:'bold',fontSize:'25px'}}><u>Accelerate</u></h1>
                 </div>
                 <div>
                 <h1 style={{color:'white',textAlign:'center',fontWeight:'bold',fontSize:'18px'}}>Airport Dashboard</h1>
@@ -296,7 +329,9 @@ refreshList(){
                     
                  </div>
 
+
                  <div style={{float:'right',width:'250px',marginTop:'10px'}}>
+                     
 
                      <div style={{float:'left',width:'100px'}}>
                      <img src={logo} width='40px' height="60px" style={{float:'right'}}/>
@@ -323,13 +358,13 @@ refreshList(){
                 
             <div style={{marginLeft:'20px', height:'800px', marginRight:'20px',paddingTop:'15px'}}>
 
-            <div style={{float:'right',marginTop:'5px',marginRight:'35px',paddingBottom:'10px'}}>
+            <div style={{float:'right',marginTop:'5px',marginRight:'15px',paddingBottom:'10px'}}>
                  
                       <input type="text"  placeholder="Search..." value={this.searchText} onChange={this.searchHandler}/>
                      
                    </div>
 
-                   <Table className="tableStyle" striped bordered hover style={{width:'1160px',marginLeft:'30px',height:'600px',marginTop:'30px',borderBottomColor:'white'}}>
+                   <Table className="tableStyle" striped bordered hover style={{width:'1200px',marginLeft:'15px',height:'600px',marginTop:'30px',borderBottomColor:'white'}}>
                        
                        <tbody>
                            
@@ -338,10 +373,10 @@ refreshList(){
                                <th style={{width:'70px',borderBottomColor:'black',paddingTop:'5px' }}>FLT. NO.</th>
                                <th style={{width:'50px',borderBottomColor:'black',paddingTop:'5px'}}>DEST.</th>
                                <th style={{width:'50px',borderBottomColor:'black',paddingTop:'5px'}}>ETD</th>
-                               <th style={{width:'100px',borderBottomColor:'black',paddingTop:'5px'}}>PAX. STATUS</th>
+                               <th style={{width:'120px',borderBottomColor:'black',paddingTop:'5px'}}>PAX. STATUS</th>
                                <th style={{width:'80px',borderBottomColor:'black',paddingTop:'5px'}}> PAX. TIER</th>
                                <th style={{width:'800px',borderBottomColor:'black',paddingTop:'5px',height:'1px'}} colSpan="6">SERVICE AVAILED</th>
-                               <th style={{width:'180px',borderBottomColor:'black',paddingTop:'5px'}}>CALL-TO-ACTION</th>           
+                               <th style={{width:'270px',borderBottomColor:'black',paddingTop:'5px'}}>CALL-TO-ACTION</th>           
                            </tr>
 
                            <tr >     
@@ -352,23 +387,23 @@ refreshList(){
                                    <th ></th>
                                    <th ></th>
                                    <th ></th>
-                                   <td style={{backgroundColor:'	#b9b7b6',width:'40px',textAlign:'center'}}> 
+                                   <td style={{backgroundColor:'	#b9b7b6',width:'35px',textAlign:'center'}}> 
                                        <h5 style={{fontSize:'12px'}}><i><b>CAB</b></i></h5>
                                    </td>
-                                   <td style={{backgroundColor:'	#b9b7b6',width:'10px',textAlign:'center',width:'60px'}}>
+                                   <td style={{backgroundColor:'	#b9b7b6',textAlign:'center',width:'70px'}}>
                                    <h5 style={{fontSize:'12px'}}><i><b>XPRESS CI</b></i></h5>
                                    </td>
-                                   <td style={{backgroundColor:'	#b9b7b6',width:'50px',textAlign:'center',width:'50px'}}>
+                                   <td style={{backgroundColor:'	#b9b7b6',textAlign:'center',width:'50px'}}>
                                    <h5 style={{fontSize:'12px'}}><i><b>PORTER</b></i></h5>
                                    </td>
-                                   <td style={{backgroundColor:'	#b9b7b6',width:'50px',textAlign:'center' ,width:'50px'}}>
+                                   <td style={{backgroundColor:'	#b9b7b6',textAlign:'center' ,width:'50px'}}>
                                     <h5 style={{fontSize:'12px'}}><i><b>PARKING</b></i></h5>
                                    </td>
-                                   <td style={{backgroundColor:'	#b9b7b6',width:'50px',textAlign:'center'}}>
+                                   <td style={{backgroundColor:'	#b9b7b6',width:'40px',textAlign:'center'}}>
                                    <h5 style={{fontSize:'12px'}}><i><b>LOUNGE</b></i></h5>
                                    </td>
-                                   <td colSpan="1" style={{backgroundColor:'	#b9b7b6',width:'120px',textAlign:'center',width:'50px'}}>
-                                   <td style={{backgroundColor:'#b9b7b6',border:'none',width:'60px'}}><h5 style={{fontSize:'12px'}}><i><b>E ZONE </b></i></h5></td>
+                                   <td colSpan="1" style={{backgroundColor:'	#b9b7b6',textAlign:'center',width:'70px'}}>
+                                   <td style={{backgroundColor:'#b9b7b6',border:'none',width:'100px'}}><h5 style={{fontSize:'12px'}}><i><b>E ZONE </b></i></h5></td>
                                    <td style={{backgroundColor:'#b9b7b6',border:'none',width:'30px'}}> <input style={{float:'right',height:'15px',width:'15px'}} type="image" src={neext}></input></td>
                                    
                                   
@@ -392,7 +427,7 @@ refreshList(){
                            
                            
 
-                               <td><Card style={{backgroundColor:des.pasStatus,marginLeft: 10, width: 75, height: 15,borderColor:"black" }}></Card> </td>
+                       <td>{getPassArrivalStatus(des.pasStatus)}</td>
                                
                        <td style={{paddingLeft:'10px'}}>{getTierStatus(des.tierStatus)}</td>                     
                                    
@@ -500,7 +535,7 @@ refreshList(){
 
             </div>
 
-           
+            </BrowserRouter>     
     </div>
 
     
