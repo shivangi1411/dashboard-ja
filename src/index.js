@@ -2,12 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Demo from './Demo';
-import Test from './Test';
-import StatusCard from './StatusCard';
-import DashTable from './DashTable';
-import SideNavbar from './SideNavbar';
-import SearchFilter from './SearchFilter';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
 
