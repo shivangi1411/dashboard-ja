@@ -29,19 +29,19 @@ class SalesGraph extends Component {
                 legendText: "Cab",
 				toolTipContent: "Week {x}: {y}",
 				dataPoints: [
-					{ label: "0.00", y: 12 },
-					{ label: "2.00", y: 14 },
-					{ label: "4.00", y: 50 },
-					{ label: "6.00", y: 67 },
-					{ label: "8.00", y: 37 },
-					{ label: "10.00", y: 34 },
-                    { label: "12.00", y: 26 },
-                    { label: "14.00", y: 22 },
-                    { label: "16.00", y: 68 },
-                    { label: "18.00", y: 88 },
-                    { label: "20.00", y: 28 },
-                    { label: "22.00", y: 48 },
-                    { label: "24.00", y: 58 }
+					{ label: "0:00", y: 12 },
+					{ label: "2:00", y: 14 },
+					{ label: "4:00", y: 50 },
+					{ label: "6:00", y: 67 },
+					{ label: "8:00", y: 37 },
+					{ label: "10:00", y: 34 },
+                    { label: "12:00", y: 26 },
+                    { label: "14:00", y: 22 },
+                    { label: "16:00", y: 68 },
+                    { label: "18:00", y: 88 },
+                    { label: "20:00", y: 28 },
+                    { label: "22:00", y: 48 },
+                    { label: "24:00", y: 58 }
 				]
             },
             {
@@ -51,19 +51,19 @@ class SalesGraph extends Component {
                 legendText: "Porter",
 				toolTipContent: "Week {x}: {y}%",
 				dataPoints: [
-					{ label: "0.00", y: 10 },
-					{ label: "2.00", y: 20 },
-					{ label: "4.00", y: 30 },
-					{ label: "6.00", y: 50 },
-					{ label: "8.00", y: 74 },
-					{ label: "10.00", y: 60 },
-                    { label: "12.00", y: 58 },
-                    { label: "14.00", y: 28 },
-                    { label: "16.00", y: 38 },
-                    { label: "18.00", y: 18 },
-                    { label: "20.00", y: 38 },
-                    { label: "22.00", y: 58 },
-                    { label: "24.00", y: 78 }
+					{ label: "0:00", y: 10 },
+					{ label: "2:00", y: 20 },
+					{ label: "4:00", y: 30 },
+					{ label: "6:00", y: 50 },
+					{ label: "8:00", y: 74 },
+					{ label: "10:00", y: 60 },
+                    { label: "12:00", y: 58 },
+                    { label: "14:00", y: 28 },
+                    { label: "16:00", y: 38 },
+                    { label: "18:00", y: 18 },
+                    { label: "20:00", y: 38 },
+                    { label: "22:00", y: 58 },
+                    { label: "24:00", y: 78 }
 				]
             },
             {
@@ -73,26 +73,26 @@ class SalesGraph extends Component {
                 legendText: "Xpress CI",
 				toolTipContent: "Week {x}: {y}%",
 				dataPoints: [
-					{ label: "0.00", y: 20 },
-					{ label: "2.00", y: 40 },
-					{ label: "4.00", y: 50 },
-					{ label: "6.00", y: 60 },
-					{ label: "8.00", y: 34 },
-					{ label: "10.00", y: 30 },
-                    { label: "12.00", y: 28 },
-                    { label: "14.00", y: 38 },
-                    { label: "16.00", y: 48 },
-                    { label: "18.00", y: 58 },
-                    { label: "20.00", y: 28 },
-                    { label: "22.00", y: 58 },
-                    { label: "24.00", y: 18 }
+					{ label: "0:00", y: 20 },
+					{ label: "2:00", y: 40 },
+					{ label: "4:00", y: 50 },
+					{ label: "6:00", y: 60 },
+					{ label: "8:00", y: 34 },
+					{ label: "10:00", y: 30 },
+                    { label: "12:00", y: 28 },
+                    { label: "14:00", y: 38 },
+                    { label: "16:00", y: 48 },
+                    { label: "18:00", y: 58 },
+                    { label: "20:00", y: 28 },
+                    { label: "22:00", y: 58 },
+                    { label: "24:00", y: 18 }
 				]
             }
         
         ]
 		}
 		return (
-		<div style={{width:'700px'}}>
+		<div style={{width:'1100px'}}>
 			<CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
 			/>

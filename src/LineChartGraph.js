@@ -75,7 +75,7 @@ class LineChartGraph extends Component {
         ]
 		}
 		return (
-		<div style={{width:'390px'}}>
+		<div style={{width:'500px'}}>
 			<CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
 			/>

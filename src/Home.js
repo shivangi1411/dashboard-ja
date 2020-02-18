@@ -54,14 +54,8 @@ const Home = () => {
             <Avatar style={{float:'right',marginTop:'15px'}} icon="user" />
             <Title style={{color:'white',marginTop:'10px'}} level={3}>Accelerate</Title>
             </Header>
-            <Layout style={{backgroundColor:'#152036;'}}>
-              <Sider style={{backgroundColor:'#152036;'}}>
-                <Menu defaultSelectedKeys={['Dashboard']}>
-                  <Menu.Item key='Dashboard' style={{backgroundColor:'#fafafa'}}>
-                    Dashboard
-                    </Menu.Item>
-                </Menu>
-              </Sider>
+            
+              
               <Layout>
               <Content  style={{padding: '0 50px',backgroundColor:'#152036;'}}>
             <Breadcrumb style={{ margin: '16px 0' }}>
@@ -144,12 +138,12 @@ const Home = () => {
             </Card>
             </Col>
           <Col span={5}>
-            <Card style={{ width: '230px',height : '250px',backgroundColor:'#78c350'}}>
+            <Card style={{ width: '240px',height : '250px',backgroundColor:'#78c350'}}>
             <div > 
                       <div>
                             <h3 style={{color:'white'}}>Notifications</h3>
                       </div>
-                      <div style={{float:'right'}}>
+                      <div style={{float:'right',paddingLeft:'50px'}}>
                         <img src={smartphone} width="50px" height="50px"/>
                       </div>
                       
@@ -171,13 +165,13 @@ const Home = () => {
         <div style={{paddingBottom:'20px',paddingTop:'10px'}}>
             <Row type="flex" justify="space-between">
           <Col span={8}>
-          <Card style={{ width: '450px',height : '350px',backgroundColor:'white'}}>
+          <Card style={{ width: '555px',height : '350px',backgroundColor:'white'}}>
               <LineChartGraph />
               </Card>
           
             </Col>
           <Col span={12}>
-          <Card style={{ width: '500px',height : '350px', backgroundColor:'white'}}>
+          <Card style={{ width: '550px',height : '350px', backgroundColor:'white',marginLeft:'30px'}}>
           <div>
 			<CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */
@@ -189,8 +183,8 @@ const Home = () => {
          
         </Row>
         <Row type='flex' justify='space-around'>
-        <Col span="50">
-        <Card style={{ width: '800px',height : '350px',backgroundColor:'white', marginTop:'10px'}}>
+        <Col >
+        <Card style={{ width: '1170px',height : '350px',backgroundColor:'white', marginTop:'10px'}}>
               <SalesGraph />
               </Card>
         </Col>
@@ -201,8 +195,7 @@ const Home = () => {
             
     
                  </Content>
-                
-              </Layout>
+         
            </Layout>
         </Layout>
         </div>
