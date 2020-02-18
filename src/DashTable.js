@@ -3,29 +3,19 @@ import {Avatar,Typography} from 'antd';
 import { Row, Col,Card, Icon} from 'antd';
 import ReactDOM from 'react-dom';
 import './DashTable.css';
-import Toolbar from './Toolbar';
 import SideDrawer from './SideDrawer';
 import {BrowserRouter, Route,Switch} from 'react-router-dom';
-import Home from './Home';
 import {Table} from 'react-bootstrap';
 import Clock from 'react-live-clock';
-import { destroyFns } from 'antd/lib/modal/Modal';
 import car_pic from './car_pic.png';
 import xci_pic from './xci_pic.png';
-import porter_pic from './porter_pic.png';
 import porter_man from './porter_man.png';
 import parki from './parki.png';
 import lounge_pic from './lounge_pic.png';
-import travel from './travel.png';
 import neext from './neext.PNG';
-import next_pic from './next_pic.png';
 import user from './user.png';
 import leadership from './leadership.png';
 import logo from './logo.jpg';
-import bag from './bag.png';
-import max from './max.png';
-import plane from './plane.png';
-import ezone from './ezone.png';
 import entertainment from './entertainment.png';
 
 
@@ -447,7 +437,7 @@ refreshList(){
 
                    <div style={{marginTop:'30px'}}>
 
-<table className="colrtable" style={{borderBottomStyle:'none',borderColor:'white',width:'1160px',marginLeft:'30px',height:'50px'}}>
+<table className="colrtable" style={{borderBottomStyle:'none',borderColor:'white',width:'1200px',marginLeft:'15px',height:'50px'}}>
        <tr>
            <td style={{width:'40px'}}><Card style={{ width: '30px',height : '15px', backgroundColor:'red',borderColor:'black'}}></Card></td>
            <td style={{fontSize:'8px',width:'160px'}}>Arriving >30 minutes after closing time</td>

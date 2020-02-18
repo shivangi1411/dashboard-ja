@@ -4,20 +4,17 @@ import './App.css';
 import './DashTable.js';
 import LineChartGraph from './LineChartGraph';
 import SalesGraph from './SalesGraph';
-import RevenueChart from './RevenueChart';
-import StatusCard from './StatusCard';
 import { Row, Col,Card } from 'antd';
 import './canvasjs.min'
 import CanvasJSReact from './canvasjs.react';
 import 'tachyons';
-import {BrowserRouter, Route,Switch} from 'react-router-dom';
 import growth from './growth.png';
 import downloads from './downloads.png';
 import statisc from './statisc.png';
 import upload from './upload.png';
 import decrease from './decrease.png';
 import smartphone from './smartphone.png'
-import PieChart from 'react-minimal-pie-chart';
+
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 var CanvasJS = CanvasJSReact.CanvasJS;
